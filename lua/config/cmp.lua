@@ -77,22 +77,6 @@ cmp.setup {
 			end
 		end, {'i', 's'}),
 
-		['<Tab>'] = cmp.mapping(function(fallback)
-			-- if cmp popup is visible then select next entry
-			if cmp.visible() then
-				cmp.select_next_item(select_opts)
-			-- if the popup is not visible then open the popup
-			elseif has_words_before() then
-				cmp.complete()
-			-- if it's a snippet then jump between fields
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			-- otherwise fallback
-			else
-				fallback()
-			end
-		end, {'i', 's'}),
-
 		['<S-Tab>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item(select_opts)
